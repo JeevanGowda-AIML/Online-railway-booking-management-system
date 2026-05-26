@@ -1,0 +1,13 @@
+{
+  "name": "elite-rail",
+  "description": "Elite Rail - Premium Railway Booking Portal",
+  "version": "1.0.0",
+  "scripts": {
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "npx concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
