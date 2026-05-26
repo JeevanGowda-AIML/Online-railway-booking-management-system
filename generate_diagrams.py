@@ -170,94 +170,77 @@ def generate_er_diagram(output_path):
     img.save(output_path, "PNG")
     print(f"ER diagram successfully saved to {output_path}")
 
+def draw_arrow_left(draw, x, y):
+    draw.polygon([(x + 8, y - 5), (x + 8, y + 5), (x, y)], fill="black")
+
+def draw_arrow_right(draw, x, y):
+    draw.polygon([(x - 8, y - 5), (x - 8, y + 5), (x, y)], fill="black")
+
 def generate_schema_diagram(output_path):
     # Canvas Size
-    img = Image.new("RGB", (1200, 800), "white")
+    img = Image.new("RGB", (1200, 650), "white")
     draw = ImageDraw.Draw(img)
     
-    font_title = get_font(28)
-    font_table = get_font(18)
+    font_title = get_font(26)
+    font_tbl_header = get_font(18)
+    font_col = get_font(16)
     
-    # Title
-    draw_centered_text(draw, "Relational Schema Diagram: Online Railway Booking System", 600, 50, font_title)
+    # Title (Sky-blue header style matches the reference image title)
+    draw_centered_text(draw, "Schema Diagram for Elite Rail Database", 600, 45, font_title)
     
-    # Colors
-    box_color = (79, 157, 36) # #4F9D24 Grass Green
-    text_color = "white"
+    # Header sky-blue color
+    header_color = (203, 230, 247) # Light blue/sky blue #CBE6F7
     
-    # Define Tables
-    tables = [
-        {
-            "name": "users",
-            "text": "users (id, name, email, password, role)",
-            "box": (150, 150, 1050, 210)
-        },
-        {
-            "name": "trains",
-            "text": "trains (id, train_number, name, source, destination, departure_time, arrival_time, total_seats, price_base)",
-            "box": (50, 350, 1150, 410)
-        },
-        {
-            "name": "bookings",
-            "text": "bookings (id, user_id, train_id, seat_number, booking_date, status)",
-            "box": (100, 550, 1100, 610)
-        }
-    ]
+    # Define Tables and Coordinates
+    # users: X: 150 to 350 (width 200). Y: 100 to 140 (header), 140 to 290 (cols)
+    draw.rectangle((150, 100, 350, 140), fill=header_color, outline="black", width=2)
+    draw.rectangle((150, 140, 350, 295), fill="white", outline="black", width=2)
+    draw_centered_text(draw, "users", 250, 120, font_tbl_header)
     
-    # Draw Tables
-    cols_x = {}
-    for tbl in tables:
-        draw.rectangle(tbl["box"], fill=box_color)
+    users_cols = [("id", True), ("name", False), ("email", False), ("password", False), ("role", False)]
+    for idx, (col, pk) in enumerate(users_cols):
+        cy = 165 + idx * 26
+        draw_centered_text(draw, col, 250, cy, font_col, underline=pk)
         
-        # Centered text in box
-        box_w = tbl["box"][2] - tbl["box"][0]
-        bbox_text = draw.textbbox((0, 0), tbl["text"], font=font_table)
-        text_w = bbox_text[2] - bbox_text[0]
-        start_x = tbl["box"][0] + (box_w - text_w) / 2
-        cy = tbl["box"][1] + (tbl["box"][3] - tbl["box"][1]) / 2
-        
-        # Draw entire text
-        draw_centered_text(draw, tbl["text"], tbl["box"][0] + box_w/2, cy, font_table)
-        
-        # Calculate specific column center coordinate X
-        if tbl["name"] == "users":
-            cols_x["users.id"] = get_column_x(draw, tbl["text"], "id", start_x, font_table)
-        elif tbl["name"] == "trains":
-            cols_x["trains.id"] = get_column_x(draw, tbl["text"], "id", start_x, font_table)
-        elif tbl["name"] == "bookings":
-            cols_x["bookings.user_id"] = get_column_x(draw, tbl["text"], "user_id", start_x, font_table)
-            cols_x["bookings.train_id"] = get_column_x(draw, tbl["text"], "train_id", start_x, font_table)
-            
-    # Draw Foreign Key Arrows
-    # 1. bookings.user_id -> users.id
-    # Path: bookings.user_id (top of box, Y=550) -> up to Y=480 -> left to X=35 -> up to Y=100 -> right to users.id X -> down to users.id Y=150
-    x_start1 = cols_x["bookings.user_id"]
-    x_end1 = cols_x["users.id"]
+    # trains: X: 850 to 1050 (width 200). Y: 100 to 140 (header), 140 to 395 (cols)
+    draw.rectangle((850, 100, 1050, 140), fill=header_color, outline="black", width=2)
+    draw.rectangle((850, 140, 1050, 395), fill="white", outline="black", width=2)
+    draw_centered_text(draw, "trains", 950, 120, font_tbl_header)
     
-    points1 = [
-        (x_start1, 550),
-        (x_start1, 480),
-        (35, 480),
-        (35, 100),
-        (x_end1, 100),
-        (x_end1, 150)
+    trains_cols = [
+        ("id", True), ("train_number", False), ("name", False), 
+        ("source", False), ("destination", False), ("departure_time", False), 
+        ("arrival_time", False), ("total_seats", False), ("price_base", False)
     ]
-    draw.line(points1, fill="black", width=2)
-    draw_arrow_down(draw, x_end1, 150)
+    for idx, (col, pk) in enumerate(trains_cols):
+        cy = 165 + idx * 26
+        draw_centered_text(draw, col, 950, cy, font_col, underline=pk)
+        
+    # bookings: X: 500 to 700 (width 200). Y: 320 to 360 (header), 360 to 540 (cols)
+    draw.rectangle((500, 320, 700, 360), fill=header_color, outline="black", width=2)
+    draw.rectangle((500, 360, 700, 540), fill="white", outline="black", width=2)
+    draw_centered_text(draw, "bookings", 600, 340, font_tbl_header)
     
-    # 2. bookings.train_id -> trains.id
-    # Path: bookings.train_id (top of box, Y=550) -> up to Y=460 -> left/right to trains.id X -> down to trains.id Y=410
-    x_start2 = cols_x["bookings.train_id"]
-    x_end2 = cols_x["trains.id"]
-    
-    points2 = [
-        (x_start2, 550),
-        (x_start2, 460),
-        (x_end2, 460),
-        (x_end2, 410)
+    bookings_cols = [
+        ("id", True), ("user_id", False), ("train_id", False), 
+        ("seat_number", False), ("booking_date", False), ("status", False)
     ]
-    draw.line(points2, fill="black", width=2)
-    draw_arrow_down(draw, x_end2, 410)
+    for idx, (col, pk) in enumerate(bookings_cols):
+        cy = 385 + idx * 26
+        draw_centered_text(draw, col, 600, cy, font_col, underline=pk)
+        
+    # Draw Referential Integrity Arrows
+    # 1. bookings.user_id (FK) -> users.id (PK)
+    # user_id is the 2nd column in bookings -> Y = 385 + 1 * 26 = 411. Left boundary = 500
+    # users.id is the 1st column in users -> Y = 165. Right boundary = 350
+    draw.line([(500, 411), (425, 411), (425, 165), (350, 165)], fill="black", width=2)
+    draw_arrow_left(draw, 350, 165)
+    
+    # 2. bookings.train_id (FK) -> trains.id (PK)
+    # train_id is the 3rd column in bookings -> Y = 385 + 2 * 26 = 437. Right boundary = 700
+    # trains.id is the 1st column in trains -> Y = 165. Left boundary = 850
+    draw.line([(700, 437), (775, 437), (775, 165), (850, 165)], fill="black", width=2)
+    draw_arrow_right(draw, 850, 165)
     
     img.save(output_path, "PNG")
     print(f"Schema diagram successfully saved to {output_path}")
