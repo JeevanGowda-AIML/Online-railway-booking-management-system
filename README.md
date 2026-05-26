@@ -39,12 +39,12 @@ The project uses a Relational Database Management System (RDBMS) with the follow
 ### 📐 Entity-Relationship (ER) Diagram
 This classic **Chen-style ER Diagram** illustrates the database entities (`User`, `Train`, `Booking`), their attributes (with primary keys underlined), and their structural relationships (`Makes`, `For`) along with their respective cardinallity constraints (`1` to `M`).
 
-![Entity-Relationship Diagram](assets/er_diagram.png)
+![Entity-Relationship Diagram](er_diagram.png)
 
-### 📋 Relational Schema Diagram
-This **Relational Schema Diagram** maps the relational tables, attributes, and referential integrity (foreign key) constraints. Arrows connect the referencing foreign keys (`bookings.user_id` and `bookings.train_id`) directly to their parent primary keys (`users.id` and `trains.id`).
+### 📋 Star Schema Diagram
+This **Star Schema Diagram** (fact-and-dimension design) maps the database structure against a grey canvas, illustrating the relationships between the central fact table (`bookings`) and its dimension tables (`users` and `trains`). Lines link the foreign keys directly to their referenced keys.
 
-![Relational Schema Diagram](assets/schema_diagram.png)
+![Star Schema Diagram](schema_diagram.png)
 
 ## ✨ Premium Features
 
@@ -58,15 +58,10 @@ This **Relational Schema Diagram** maps the relational tables, attributes, and r
 
 ```text
 Elite Rail/
-├── assets/              # Visual diagrams and application screenshots
 ├── backend/             # Node.js + Express.js API Server
 │   ├── database.js      # SQLite3 connection & table setup
 │   ├── index.js         # API endpoint routes & logic
 │   └── schema.sql       # Database schema creation & seeding
-├── documents/           # Project reports, presentations, and DBMS specs
-│   ├── DBMS RRR.4.pptx
-│   ├── DBMS project report format.docx
-│   └── EliteRail_DBMS_Report.pptx
 ├── frontend/            # React + Vite Client Application
 │   ├── src/
 │   │   ├── api/         # Axios API backend client
@@ -74,9 +69,15 @@ Elite Rail/
 │   │   ├── pages/       # User & admin page screens
 │   │   └── index.css    # Custom premium CSS design system
 │   └── package.json
+├── .gitignore           # Git ignore settings (local-only assets & documents excluded)
+├── er_diagram.png       # Chen ER diagram image (GitHub active)
+├── generate_diagrams.py # Programmatic drawing script for ER/Schema diagrams
 ├── package.json         # Root package file for multi-service execution
+├── requirements.txt     # Summary list of project prerequisites
+├── schema_diagram.png   # Star Schema diagram image (GitHub active)
 └── start_app.bat        # Windows root script launcher
 ```
 
 ---
 *Developed for Elite Rail - Excellence in Motion.*
+

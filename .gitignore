@@ -22,3 +22,8 @@ Thumbs.db
 # Diagnostic/Log files
 logs
 *.log
+
+# Project specific ignores
+documents/
+assets/
+
