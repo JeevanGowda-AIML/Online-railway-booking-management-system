@@ -71,10 +71,14 @@ Elite Rail/
 │   └── package.json
 ├── .gitignore           # Git ignore settings (local-only assets & documents excluded)
 ├── interfaces/          # User interface assets and database diagrams
+│   ├── booking.png      # Interactive seat selection screenshot
+│   ├── dashboard.png    # Valued guest travel summary dashboard screenshot
 │   ├── er_diagram.png   # Chen ER diagram image (GitHub active)
 │   ├── favicon.svg      # Page tab favicon icon
 │   ├── hero-bg.png      # Home section hero banner background
-│   └── schema_diagram.png # Star Schema diagram image (GitHub active)
+│   ├── journeys.png     # Digital ticket dashboard screenshot
+│   ├── schema_diagram.png # Star Schema diagram image (GitHub active)
+│   └── scheduling.png   # Train scheduling & management screenshot
 ├── package.json         # Root package file for multi-service execution
 └── requirements.txt     # Summary list of project prerequisites
 ```
