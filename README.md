@@ -38,12 +38,12 @@ The project uses a Relational Database Management System (RDBMS) with the follow
 ### 📐 Entity-Relationship (ER) Diagram
 This classic **Chen-style ER Diagram** illustrates the database entities (`User`, `Train`, `Booking`), their attributes (with primary keys underlined), and their structural relationships (`Makes`, `For`) along with their respective cardinallity constraints (`1` to `M`).
 
-![Entity-Relationship Diagram](er_diagram.png)
+![Entity-Relationship Diagram](interfaces/er_diagram.png)
 
 ### 📋 Star Schema Diagram
 This **Star Schema Diagram** (fact-and-dimension design) showcases the database tables and key constraints inside a premium dark-mode canvas, illustrating the relationships between the central fact table (`bookings`) and its dimension tables (`users` and `trains`) using standard crow's foot notation. Lines link the foreign keys directly to their referenced keys.
 
-![Star Schema Diagram](schema_diagram.png)
+![Star Schema Diagram](interfaces/schema_diagram.png)
 
 
 ## ✨ Premium Features
@@ -70,10 +70,13 @@ Elite Rail/
 │   │   └── index.css    # Custom premium CSS design system
 │   └── package.json
 ├── .gitignore           # Git ignore settings (local-only assets & documents excluded)
-├── er_diagram.png       # Chen ER diagram image (GitHub active)
+├── interfaces/          # User interface assets and database diagrams
+│   ├── er_diagram.png   # Chen ER diagram image (GitHub active)
+│   ├── favicon.svg      # Page tab favicon icon
+│   ├── hero-bg.png      # Home section hero banner background
+│   └── schema_diagram.png # Star Schema diagram image (GitHub active)
 ├── package.json         # Root package file for multi-service execution
-├── requirements.txt     # Summary list of project prerequisites
-└── schema_diagram.png   # Star Schema diagram image (GitHub active)
+└── requirements.txt     # Summary list of project prerequisites
 ```
 
 ---
