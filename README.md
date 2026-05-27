@@ -42,9 +42,10 @@ This classic **Chen-style ER Diagram** illustrates the database entities (`User`
 ![Entity-Relationship Diagram](er_diagram.png)
 
 ### 📋 Star Schema Diagram
-This **Star Schema Diagram** (fact-and-dimension design) maps the database structure against a grey canvas, illustrating the relationships between the central fact table (`bookings`) and its dimension tables (`users` and `trains`). Lines link the foreign keys directly to their referenced keys.
+This **Star Schema Diagram** (fact-and-dimension design) showcases the database tables and key constraints inside a premium dark-mode canvas, illustrating the relationships between the central fact table (`bookings`) and its dimension tables (`users` and `trains`) using standard crow's foot notation. Lines link the foreign keys directly to their referenced keys.
 
 ![Star Schema Diagram](schema_diagram.png)
+
 
 ## ✨ Premium Features
 
@@ -71,7 +72,6 @@ Elite Rail/
 │   └── package.json
 ├── .gitignore           # Git ignore settings (local-only assets & documents excluded)
 ├── er_diagram.png       # Chen ER diagram image (GitHub active)
-├── generate_diagrams.py # Programmatic drawing script for ER/Schema diagrams
 ├── package.json         # Root package file for multi-service execution
 ├── requirements.txt     # Summary list of project prerequisites
 ├── schema_diagram.png   # Star Schema diagram image (GitHub active)
