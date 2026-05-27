@@ -12,8 +12,7 @@ Elite Rail is a full-stack premium railway booking application featuring a glass
    ```
 
 2. **Run the Application**:
-   - **Option A (Easy)**: Double-click `start_app.bat` in the root folder.
-   - **Option B (Manual)**: Run `npm run dev` in the terminal.
+   Run `npm run dev` in the terminal.
 
    - **Frontend**: http://localhost:5173
    - **Backend**: http://localhost:5000
@@ -74,8 +73,7 @@ Elite Rail/
 ├── er_diagram.png       # Chen ER diagram image (GitHub active)
 ├── package.json         # Root package file for multi-service execution
 ├── requirements.txt     # Summary list of project prerequisites
-├── schema_diagram.png   # Star Schema diagram image (GitHub active)
-└── start_app.bat        # Windows root script launcher
+└── schema_diagram.png   # Star Schema diagram image (GitHub active)
 ```
 
 ---
