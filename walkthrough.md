@@ -115,4 +115,36 @@ ORDER BY b.travel_date ASC;
 
 ---
 
+## 🛠️ How to Run
+
+> [!IMPORTANT]
+> **Prerequisites**: Node.js (v18+) must be installed on your system.
+
+### Option 1 — Root Command Launch (Recommended)
+Run a single command in the root folder of the project to boot both the backend API server and frontend client concurrently:
+```bash
+npm run dev
+```
+
+### Option 2 — Manual Multi-Terminal Launch
+
+**Terminal 1 (Backend Server):**
+```bash
+cd backend
+npm start
+```
+
+**Terminal 2 (Frontend Client):**
+```bash
+cd frontend
+npm run dev
+```
+
+### Accessing the Portals
+Once running, you can access the applications at:
+* **Frontend Portal (React Client)**: http://localhost:5173
+* **Backend API (Express Server)**: http://localhost:5000
+
+---
+
 *Developed for Elite Rail - Excellence in Motion.*
