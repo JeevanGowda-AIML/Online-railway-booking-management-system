@@ -45,6 +45,24 @@ This **Star Schema Diagram** (fact-and-dimension design) showcases the database 
 
 ![Star Schema Diagram](interfaces/schema_diagram.png)
 
+## 📸 Application Screenshots
+
+### 📊 Passenger Dashboard
+A glassmorphic, personalized travel dashboard displaying a premium welcome banner, quick trip statistics, upcoming journeys, and recent activity.
+![Passenger Dashboard](interfaces/dashboard.png)
+
+### 🗺️ Train Scheduling & Management
+An intuitive schedule management screen listing premium train offerings, real-time ticket pricing, dynamic search capabilities, and admin controls.
+![Train Scheduling & Management](interfaces/scheduling.png)
+
+### 💺 Interactive Seat Selection
+An engaging ticket booking interface featuring a live, selectable seat map, instant ticket pricing, dynamic service charges, and automatic grand total calculations.
+![Interactive Seat Selection](interfaces/booking.png)
+
+### 🎫 My Journeys Dashboard
+A clean, visual ticket locker allowing passengers to view, print, or download confirmed luxury e-tickets for their upcoming travels.
+![My Journeys Dashboard](interfaces/journeys.png)
+
 
 ## ✨ Premium Features
 
