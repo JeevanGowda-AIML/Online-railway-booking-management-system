@@ -4,11 +4,26 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Database files
+# Production build outputs
+dist/
+frontend/dist/
+
+# Local databases
 backend/railway.db
 backend/railway.db-journal
+*.db
+*.sqlite
+*.sqlite3
 
-# IDEs and OS files
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.staging
+
+# IDEs, editors and OS files
 .idea/
 .vscode/
 *.suo
@@ -20,10 +35,9 @@ backend/railway.db-journal
 Thumbs.db
 
 # Diagnostic/Log files
-logs
+logs/
 *.log
 
 # Project specific ignores
 documents/
-assets/
-
+frontend/assets/

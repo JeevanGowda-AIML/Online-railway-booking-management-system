@@ -1,0 +1,37 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-size: '18'
+          cache: 'npm'
+
+      - name: Install Root Dependencies
+        run: npm ci || npm install
+
+      - name: Build & Lint Backend
+        working-directory: ./backend
+        run: |
+          npm ci || npm install
+          # Add backend test/lint execution here if configured
+
+      - name: Build & Lint Frontend
+        working-directory: ./frontend
+        run: |
+          npm ci || npm install
+          npm run lint
+          npm run build
