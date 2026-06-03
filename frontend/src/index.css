@@ -34,7 +34,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 64px 20px;
-  background-image: linear-gradient(rgba(0, 6, 19, 0.7), rgba(0, 6, 19, 0.7)), url('/hero-bg.png');
+  background-image: linear-gradient(rgba(0, 6, 19, 0.7), rgba(0, 6, 19, 0.7)), url('./assets/hero-bg.png');
   background-size: cover;
   background-position: center;
   color: white;
@@ -57,7 +57,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 20px 100px 20px;
-  background-image: linear-gradient(to bottom, rgba(0, 6, 19, 0.6), rgba(0, 31, 63, 0.95)), url('/hero-bg.png');
+  background-image: linear-gradient(to bottom, rgba(0, 6, 19, 0.6), rgba(0, 31, 63, 0.95)), url('./assets/hero-bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
