@@ -12,7 +12,7 @@ import About from './pages/About';
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.DEV ? '/' : '/Online-railway-booking-management-system'}>
       <div className="min-h-screen">
         <Navbar />
         <Routes>
