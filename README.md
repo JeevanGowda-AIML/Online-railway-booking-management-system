@@ -38,7 +38,7 @@ The project uses a Relational Database Management System (RDBMS) with the follow
 ### 📐 Entity-Relationship (ER) Diagram
 This classic **Chen-style ER Diagram** illustrates the database entities (`User`, `Train`, `Booking`), their attributes (with primary keys underlined), and their structural relationships (`Makes`, `For`) along with their respective cardinallity constraints (`1` to `M`).
 
-![Entity-Relationship Diagram](interfaces/er_diagram.png)
+![Entity-Relationship Diagram](interfaces/er_diagram_v2.png)
 
 ### 📋 Star Schema Diagram
 This **Star Schema Diagram** (fact-and-dimension design) showcases the database tables and key constraints inside a premium dark-mode canvas, illustrating the relationships between the central fact table (`bookings`) and its dimension tables (`users` and `trains`) using standard crow's foot notation. Lines link the foreign keys directly to their referenced keys.
@@ -91,7 +91,7 @@ Elite Rail/
 ├── interfaces/          # User interface assets and database diagrams
 │   ├── booking.png      # Interactive seat selection screenshot
 │   ├── dashboard.png    # Valued guest travel summary dashboard screenshot
-│   ├── er_diagram.png   # Chen ER diagram image (GitHub active)
+│   ├── er_diagram_v2.png # Chen ER diagram image (GitHub active)
 │   ├── favicon.svg      # Page tab favicon icon
 │   ├── hero-bg.png      # Home section hero banner background
 │   ├── journeys.png     # Digital ticket dashboard screenshot
